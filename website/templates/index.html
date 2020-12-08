@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html><head><title>Carzam!</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+</head>
+<body>
+	<img src="/static/carzam_logoname.png"/>
+
+
+<br><br>
+Welcome to CarZam! the car make and model detector.
+<br><br>
+<i>
+<small>
+(Carzam is currently trained to detect 2010-2020 cars from Chevrolet, Ford, Honda, Mercedes Benz or Toyota</i>)
+</small>
+<br><br>
+<p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+                <ul class=flashes>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+          {% endif %}
+        {% endwith %}
+</p>
+
+<h2> Try it Out </h2>
+<h3> Upload your car picture</h3>
+Must be in jpeg/jpg format...
+<form method="post" action="/" enctype="multipart/form-data">
+		<p>
+		<input type="file" class="button" name="file" autocomplete="off" required>
+		<input type="submit" class="button" value="Upload">
+	</p>
+</form>
+<br>
+<h3> Your Picture</h3>
+<p>
+{% if filename %}
+        <div>
+                <img src="{{ url_for('display_image', filename=filename) }}" width=600>
+        </div>
+{% endif %}
+</p>
+<h3> Our Prediction</h3>
+<p>
+May take a few seconds...
+<br>
+{% if filename %}
+        <div>
+                <img src="{{ url_for('inference_image', filename=filename) }}" width=600>
+        </div>
+{% endif %}
+</p>
+<br>
+<br>
+<br>
+<br>
+<font size=4>
+	<a href="about" >ABOUT</a>
+</font>
+
+</body></html>

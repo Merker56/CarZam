@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head><title>Carzam!</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+<link rel="shortcut icon" type="image/x-icon" href="/static/favicon.png" />
+
+</head>
+<body>
+<br><br>
+	<img src="/static/carzam_logoname.png">
+<br><br>
+<div class="about">
+<h1> About </h1>
+<br>
+CarZam is an application developed as part of a Capstone project in the MIDS program at the I-School at UC Berkeley. The application leverages deep learning neural network models to detect and predict the make and model of various cars sold in the US. The model was trained on an extensive dataset that combined public datasets as well as images sourced from webscraping automobile sales sites.  
+<br>
+<br>
+<h2>Problem Statement</h2>
+<br>
+There are existing tools to detect cars in images and videos but no comprehensive tool for also detecting make and model of the cars. For security and surveillance applications, the additional value of detecting make and model can help quickly narrow down and focus analysis. For traffic and commercial applications this tool can be extended to count makes and models of cars passing through intersections, tool gates, or on highways.
+<br>
+<br>
+<h2>Datasets</h2>
+<ul>
+	<li>Webscraped Data</a></li>
+	<li><a href = "https://ai.stanford.edu/~jkrause/cars/car_dataset.html">Stanford Data</a></li>
+	<li><a href = "https://github.com/faezetta/VMMRdb">VMMR DB</a></li>
+</ul>
+<br>
+<h2>Model Training</h2>
+<br>
+CarZam is based on the <a href="https://github.com/ultralytics/yolov5">YOLOv5</a> Object Detection Model. We custom trained X-large YoloV5 model with our own custom car make dataset which included 58357 images classified into 81 unique car models.We used k-folds cross validation with 5 folds. Each fold trained for 70 Epochs (about 17 hours per fold on a dual V100 GPU system) 
+<br>
+<h2>Results</h2>
+<br>
+Our model has shown to deliver about 95% precision and about 99% recall across folds. 
+To learn more about the results of our training of the Carzam model please refer to our <a href = "/results">Results</a> page.
+<br>
+<br>
+<h2>Code</h2>
+<a href="https://github.com/pnpgator/carzam"><img src="/static/GitHub.png" width="20" height="20">Carzam Repo</a>
+<br>
+<br>
+<h2>Team Members</h2>
+<ul>
+	<li><a href = "https://www.ischool.berkeley.edu/people/william-king">Mike King</a>  <a href="https://www.linkedin.com/in/wmikeking"><img src="/static/LinkedIn.png" width="22" height="20"></a></li>
+	<br>
+        <li><a href = "https://www.ischool.berkeley.edu/people/joseph-mercer">Joe Mercer</a>  <a href="https://www.linkedin.com/in/joseph-mercer-43413470/"><img src="/static/LinkedIn.png" width="22" height="20"></li>
+	<br>
+	<li><a href = "https://www.ischool.berkeley.edu/people/pritesh-patel">Pritesh Patel</a>  <a href="https://www.linkedin.com/in/pritesh2/"><img src="/static/LinkedIn.png" width="22" height="20"></li>
+</ul>
+<br>
+</div>
+</body></html>
